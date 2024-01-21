@@ -1,6 +1,7 @@
 'use client'
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { Button } from './button'
 
 interface PropsModalTrigger {
   children: React.ReactNode
@@ -28,13 +29,8 @@ export function Modal () {
               </h1>
               <p>This account will only show rough details of the application. If you want to see more, the source code is available on <Link href='https://github.com/Luis-Prendas' target='_blank' className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>GitHub.</Link></p>
               <div className='w-full flex justify-end gap-4'>
-                <button onClick={() => router.replace(pathname)} className='outline outline-1 outline-slate-800 text-sm font-medium text-white p-2 rounded-md'>Cancel</button>
-                <button onClick={() => router.replace(pathname)} className='relative inline-flex overflow-hidden rounded-md p-[1px]'>
-                  <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
-                  <span className='inline-flex h-full p-2 w-full cursor-pointer items-center justify-center rounded-md bg-slate-950 text-sm font-medium text-white backdrop-blur-3xl'>
-                    Continue
-                  </span>
-                </button>
+                <Button className='p-2 text-sm' onClick={() => router.replace(pathname)}>Cancel</Button>
+                <Button types='rotating' className='p-2 text-sm font-medium' onClick={() => router.replace(pathname)}>Continue</Button>
               </div>
             </div>
           </section>

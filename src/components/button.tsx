@@ -1,10 +1,11 @@
 import Link from 'next/link'
+import { type HTMLAttributes } from 'react'
 
-interface BaseButton {
-  children: React.ReactNode
+interface BaseButton extends HTMLAttributes<HTMLButtonElement> {
   link?: boolean
-  className?: string
   href?: string
+  position?: string
+  type?: 'button' | 'submit' | 'reset' | undefined
 }
 
 interface ButtonProps extends BaseButton {
@@ -33,9 +34,9 @@ export function Button ({ types, ...baseProps }: ButtonProps) {
 
 export function RotatingButton ({ ...baseProps }: BaseButton) {
   return (
-    <button className='relative inline-flex overflow-hidden rounded-full p-[1px]'>
+    <button type={baseProps.type} onClick={baseProps.onClick} className={`${baseProps.position ? baseProps.position : 'relative'} inline-flex overflow-hidden rounded-md p-[1px]`}>
       <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
-      <span className={`${baseProps.className} font-light inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 text-white backdrop-blur-3xl`}>
+      <span className={`${baseProps.className} font-light inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-slate-950 text-white backdrop-blur-3xl`}>
         {baseProps.children}
       </span>
     </button>
@@ -44,18 +45,18 @@ export function RotatingButton ({ ...baseProps }: BaseButton) {
 
 export function RotatingLink ({ ...baseProps }: ButtonWithLink) {
   return (
-    <button className='relative inline-flex overflow-hidden rounded-full p-[1px]'>
+    <Link href={baseProps.href} className={`${baseProps.position ? baseProps.position : 'relative'} inline-flex overflow-hidden rounded-md p-[1px]`}>
       <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
-      <Link href={baseProps.href} className={`${baseProps.className} font-light inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 text-white backdrop-blur-3xl`}>
+      <span className={`${baseProps.className} font-light inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-slate-950 text-white backdrop-blur-3xl`}>
         {baseProps.children}
-      </Link>
-    </button>
+      </span>
+    </Link>
   )
 }
 
 export function DefaultButton ({ ...baseProps }: BaseButton) {
   return (
-    <button className={`${baseProps.className} font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors`}>
+    <button type={baseProps.type} onClick={baseProps.onClick} className={`${baseProps.className} ${baseProps.position ? baseProps.position : 'relative'} font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors`}>
       {baseProps.children}
     </button>
   )
@@ -63,7 +64,7 @@ export function DefaultButton ({ ...baseProps }: BaseButton) {
 
 export function DefaultLink ({ ...baseProps }: ButtonWithLink) {
   return (
-    <Link href={baseProps.href} className={`${baseProps.className} font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors`}>
+    <Link href={baseProps.href} className={`${baseProps.className} ${baseProps.position ? baseProps.position : 'relative'} font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors`}>
       {baseProps.children}
     </Link>
   )

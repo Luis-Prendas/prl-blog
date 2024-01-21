@@ -1,3 +1,4 @@
+import { Button } from '@/components/button'
 import { Modal, ModalTrigger } from '@/components/modal'
 import { Pulse } from '@/components/pulse'
 
@@ -29,9 +30,7 @@ export default function SingInPage () {
                 placeholder='Enter your password'
                 required
               />
-              <button className='px-8 py-2 text-xl font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors'>
-                SingIn
-              </button>
+              <Button type='submit' className='py-2 px-8 text-xl'>Sing in</Button>
             </form>
           </div>
         </section>

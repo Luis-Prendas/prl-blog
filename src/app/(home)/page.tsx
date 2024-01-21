@@ -1,5 +1,5 @@
+import { Button } from '@/components/button'
 import { Pulse } from '@/components/pulse'
-import Link from 'next/link'
 
 export default function Home () {
   return (
@@ -15,9 +15,7 @@ export default function Home () {
           <p className='text-xl font-light'>
             <span className='text-slate-500'>Crafted with</span> Next and Tailwind CSS.
           </p>
-          <Link href='/singin' className='px-8 py-2 text-xl mt-8 font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors'>
-            Start now
-          </Link>
+          <Button link href='/singin' className='py-2 px-8 text-xl'>Start now</Button>
         </article>
         <article className='max-w-screen-sm text-sm font-light text-slate-300/20'>
           <p>
