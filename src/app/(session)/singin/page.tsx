@@ -1,6 +1,5 @@
-import Modal from '@/components/modal'
+import { Modal, ModalTrigger } from '@/components/modal'
 import { Pulse } from '@/components/pulse'
-import Link from 'next/link'
 
 export default function SingInPage () {
   return (
@@ -39,7 +38,7 @@ export default function SingInPage () {
       </main>
       <article>
         <p>
-          To login as a guest click <Link href="?modal=true" className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>aqui</Link>
+          To login as a guest click <ModalTrigger className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>aqui.</ModalTrigger>
         </p>
       </article>
       <Modal />

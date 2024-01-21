@@ -1,11 +1,17 @@
 'use client'
-import { useSearchParams, usePathname } from 'next/navigation'
+import { useSearchParams, usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-function Modal () {
+interface PropsModalTrigger {
+  children: React.ReactNode
+  className?: string
+}
+
+export function Modal () {
   const searchParams = useSearchParams()
   const modal = searchParams.get('modal')
   const pathname = usePathname()
+  const router = useRouter()
 
   return (
     <>
@@ -22,13 +28,13 @@ function Modal () {
               </h1>
               <p>This account will only show rough details of the application. If you want to see more, the source code is available on <Link href='https://github.com/Luis-Prendas' target='_blank' className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>GitHub.</Link></p>
               <div className='w-full flex justify-end gap-4'>
-                <Link href={pathname} className='outline outline-1 outline-slate-800 text-sm font-medium text-white p-2 rounded-md'>Cancel</Link>
-                <Link href={pathname} className='relative inline-flex overflow-hidden rounded-md p-[1px]'>
+                <button onClick={() => router.replace(pathname)} className='outline outline-1 outline-slate-800 text-sm font-medium text-white p-2 rounded-md'>Cancel</button>
+                <button onClick={() => router.replace(pathname)} className='relative inline-flex overflow-hidden rounded-md p-[1px]'>
                   <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
                   <span className='inline-flex h-full p-2 w-full cursor-pointer items-center justify-center rounded-md bg-slate-950 text-sm font-medium text-white backdrop-blur-3xl'>
                     Continue
                   </span>
-                </Link>
+                </button>
               </div>
             </div>
           </section>
@@ -38,4 +44,10 @@ function Modal () {
   )
 }
 
-export default Modal
+export function ModalTrigger ({ children, className }: PropsModalTrigger) {
+  const router = useRouter()
+
+  return (
+    <button onClick={() => router.replace('?modal=true')} className={className}>{children}</button>
+  )
+}
