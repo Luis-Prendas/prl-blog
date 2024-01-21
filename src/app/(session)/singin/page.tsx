@@ -1,4 +1,5 @@
 import { Pulse } from '@/components/pulse'
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
 import Link from 'next/link'
 
 export default function SingInPage () {
@@ -38,9 +39,24 @@ export default function SingInPage () {
       </main>
       <article>
         <p>
-          To login as a guest click <Link href='/' className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'> here</Link>
+          To login as a guest click <AlertDialog>
+            <AlertDialogTrigger className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>Open</AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Login as a guest</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This account will only show rough details of the application. If you want to see more, the source code is available on <Link href='#' className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>GitHub.</Link>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction>Continue</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </p>
       </article>
+
     </section>
   )
 };

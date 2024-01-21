@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/css/globals.css'
-import { Providers } from './(home)/providers'
+import { Providers } from './providers'
 import { ThemeSwitcher } from '@/components/themeSwitcher'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,7 +22,7 @@ export default function RootLayout ({
         <Providers>
           <ThemeSwitcher />
           {children}
-          <p className='absolute bottom-4 left-4 font-extralight text-lg text-white/50'>By Daniel Prendas</p>
+          <p className='absolute bottom-4 left-4 font-extralight text-lg text-white/50'>By <span className='inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent'>Daniel Prendas.</span></p>
         </Providers>
       </body>
     </html>
