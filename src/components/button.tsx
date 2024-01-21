@@ -32,7 +32,7 @@ export function Button ({ types, ...baseProps }: ButtonProps) {
   }
 };
 
-export function RotatingButton ({ ...baseProps }: BaseButton) {
+function RotatingButton ({ ...baseProps }: BaseButton) {
   return (
     <button type={baseProps.type} onClick={baseProps.onClick} className={`${baseProps.position ? baseProps.position : 'relative'} inline-flex overflow-hidden rounded-md p-[1px]`}>
       <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
@@ -43,7 +43,7 @@ export function RotatingButton ({ ...baseProps }: BaseButton) {
   )
 }
 
-export function RotatingLink ({ ...baseProps }: ButtonWithLink) {
+function RotatingLink ({ ...baseProps }: ButtonWithLink) {
   return (
     <Link href={baseProps.href} className={`${baseProps.position ? baseProps.position : 'relative'} inline-flex overflow-hidden rounded-md p-[1px]`}>
       <span className='absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]' />
@@ -54,7 +54,7 @@ export function RotatingLink ({ ...baseProps }: ButtonWithLink) {
   )
 }
 
-export function DefaultButton ({ ...baseProps }: BaseButton) {
+function DefaultButton ({ ...baseProps }: BaseButton) {
   return (
     <button type={baseProps.type} onClick={baseProps.onClick} className={`${baseProps.className} ${baseProps.position ? baseProps.position : 'relative'} font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors`}>
       {baseProps.children}
@@ -62,7 +62,7 @@ export function DefaultButton ({ ...baseProps }: BaseButton) {
   )
 }
 
-export function DefaultLink ({ ...baseProps }: ButtonWithLink) {
+function DefaultLink ({ ...baseProps }: ButtonWithLink) {
   return (
     <Link href={baseProps.href} className={`${baseProps.className} ${baseProps.position ? baseProps.position : 'relative'} font-light inline-flex animate-background-shine items-center justify-center rounded-md border border-[#E2CBFF] bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] transition-colors`}>
       {baseProps.children}

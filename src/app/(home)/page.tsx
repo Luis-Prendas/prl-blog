@@ -1,12 +1,8 @@
 import { Button } from '@/components/button'
-import { Pulse } from '@/components/pulse'
 
 export default function Home () {
   return (
     <main className='w-full h-full flex justify-center'>
-      <div className='w-full flex justify-center -z-10 absolute top-28'>
-        <Pulse />
-      </div>
       <section className='w-full max-w-screen-lg flex flex-col items-center p-4 h-full'>
         <article className='w-full max-w-screen-lg flex flex-col items-center gap-6 h-full mt-40'>
           <h1 className='bg-gradient-to-t from-[#6d6d6d] to-[#f4f4f4] bg-clip-text text-transparent pb-2 text-center text-7xl'>
@@ -15,7 +11,7 @@ export default function Home () {
           <p className='text-xl font-light'>
             <span className='text-slate-500'>Crafted with</span> Next and Tailwind CSS.
           </p>
-          <Button link href='/singin' className='py-2 px-8 text-xl'>Start now</Button>
+          <Button link href='/signin' className='py-2 px-8 text-xl'>Start now</Button>
         </article>
         <article className='max-w-screen-sm text-sm font-light text-slate-300/20'>
           <p>
@@ -24,7 +20,6 @@ export default function Home () {
           </p>
         </article>
       </section>
-
     </main>
   )
 }
