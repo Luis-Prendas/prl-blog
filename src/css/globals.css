@@ -16,3 +16,12 @@ h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+.animate-pulse-slow {
+  animation: pulse 6s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}

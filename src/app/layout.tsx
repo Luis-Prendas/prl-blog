@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '@/css/globals.css'
-import { Providers } from './providers'
+import { Providers } from './(home)/providers'
 import { ThemeSwitcher } from '@/components/themeSwitcher'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,10 +18,11 @@ export default function RootLayout ({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-slate-200 dark:bg-slate-950 text-slate-950 dark:text-slate-300`}>
+      <body className={`${inter.className} bg-slate-200 dark:bg-black text-slate-800 dark:text-white flex flex-col items-center`}>
         <Providers>
           <ThemeSwitcher />
           {children}
+          <p className='absolute bottom-4 left-4 font-extralight text-lg text-white/50'>By Daniel Prendas</p>
         </Providers>
       </body>
     </html>
