@@ -5,13 +5,13 @@ import { useForm } from 'react-hook-form'
 import React, { useState, useTransition } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { LoginSchema } from '@/schemas'
 import { signin } from '@/actions/signin'
 import { Box } from '@/components/box'
 import { Button } from '@/components/button'
 import { FormError } from './ui/form-error'
 import { Input } from '@/components/input'
 import { FormSuccess } from './ui/form-seccess'
+import { SignInSchema } from '@/schemas'
 
 export function SignInComponent () {
   // const { getFieldState, formState } = useFormContext()
@@ -23,8 +23,8 @@ export function SignInComponent () {
   const [success, setSuccess] = useState<string | undefined>('')
   const [isPending, startTransition] = useTransition()
 
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const form = useForm<z.infer<typeof SignInSchema>>({
+    resolver: zodResolver(SignInSchema),
     defaultValues: {
       name: '',
       password: ''
@@ -33,7 +33,7 @@ export function SignInComponent () {
 
   console.log(form.formState.errors.name?.message) // TODO: Finaly find error mesaje... my god... i go to sleep
 
-  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+  const onSubmit = (values: z.infer<typeof SignInSchema>) => {
     setError('')
     setSuccess('')
 

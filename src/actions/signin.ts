@@ -1,10 +1,10 @@
 'use client'
 
 import type * as z from 'zod'
-import { LoginSchema } from '@/schemas'
+import { SignInSchema } from '@/schemas'
 
-export const signin = async (values: z.infer<typeof LoginSchema>, callbackUrl?: string | null) => {
-  const validatedFields = LoginSchema.safeParse(values)
+export const signin = async (values: z.infer<typeof SignInSchema>, callbackUrl?: string | null) => {
+  const validatedFields = SignInSchema.safeParse(values)
 
   if (!validatedFields.success) return { error: 'Invalid fields!' }
 
