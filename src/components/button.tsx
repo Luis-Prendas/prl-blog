@@ -30,7 +30,7 @@ export function Button ({ types, ...baseProps }: ButtonProps) {
     default:
       return baseProps.link ? <DefaultLink {...baseProps} href={baseProps.href!}>{baseProps.children}</DefaultLink> : <DefaultButton {...baseProps}>{baseProps.children}</DefaultButton>
   }
-};
+}
 
 function RotatingButton ({ ...baseProps }: BaseButton) {
   return (

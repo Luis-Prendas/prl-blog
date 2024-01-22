@@ -19,4 +19,4 @@ export default function DashBoardPage () {
       </section>
     </main>
   )
-};
+}

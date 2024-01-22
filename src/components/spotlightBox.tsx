@@ -59,4 +59,4 @@ export function SpotlightBox ({ ...boxBaseProps }: BoxBaseProps) {
       {boxBaseProps.children}
     </div>
   )
-};
+}

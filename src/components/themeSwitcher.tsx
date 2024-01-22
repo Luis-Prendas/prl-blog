@@ -26,4 +26,4 @@ export function ThemeSwitcher () {
       <MdLightMode className='text-2xl' />
     </Button>
   )
-};
+}
