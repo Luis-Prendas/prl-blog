@@ -7,8 +7,8 @@ export default function DashBoardPage () {
         <Box className="row-span-1 col-span-1 flex flex-col backdrop-blur-3xl bg-stone-950/40">
           <span className='p-4 text-sm font-light'>Personal monthly activities</span>
           <div className='h-full flex justify-center items-center flex-col pb-4'>
-            <span className='text-5xl font-bold'>2510</span>
-            <span className='font-light text-slate-400'>+7% - Was 2334 last week</span>
+            <span className='text-5xl font-bold'>51</span>
+            <span className='font-light text-slate-400'>+7% - Was 40 last week</span>
           </div>
         </Box>
         <Box className="row-span-1 col-span-2 backdrop-blur-3xl bg-stone-950/40"> 2 </Box>
