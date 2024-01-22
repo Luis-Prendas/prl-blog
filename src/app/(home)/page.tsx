@@ -11,7 +11,7 @@ export default function Home () {
           <p className='text-xl font-light'>
             <span className='text-slate-500'>Crafted with</span> Next and Tailwind CSS.
           </p>
-          <Button link href='/signin' className='py-2 px-8 text-xl'>Start now</Button>
+          <Button link href='/auth/signin' className='py-2 px-8 text-xl'>Start now</Button>
         </article>
         <article className='max-w-screen-sm text-sm font-light text-slate-300/20'>
           <p>
