@@ -8,7 +8,7 @@ interface InputProps<T extends FormValues> {
   name: Path<T> // Use keyof to ensure the name is a key of the form values
   isPending?: boolean | undefined
   className?: string | undefined
-  type: 'text' | 'password'
+  type: 'text' | 'password' | 'email'
   placeholder?: string | undefined
 }
 

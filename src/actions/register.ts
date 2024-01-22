@@ -1,17 +1,17 @@
 'use server'
 
-// import type * as z from 'zod'
+import type * as z from 'zod'
 import bcrypt from 'bcrypt'
+
 import { db } from '@/lib/db'
-// import { RegisterSchema } from '@/schemas'
+import { RegisterSchema } from '@/schemas'
 
-export const register = async (formData: FormData) => {
-  const name = formData.get('name') as string
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
+export const register = async (values: z.infer<typeof RegisterSchema>) => {
+  const validatedFields = RegisterSchema.safeParse(values)
 
-  if (name ?? email ?? password) return { error: 'Invalid fields!' }
+  if (!validatedFields.success) return { error: 'Invalid fields!' }
 
+  const { email, password, name } = validatedFields.data
   const hashedPassword = await bcrypt.hash(password, 10)
 
   const existingUser = await db.user.findUnique({
