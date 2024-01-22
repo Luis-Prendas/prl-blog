@@ -27,8 +27,8 @@ export function Box ({ flashing, ...boxBaseProps }: BoxProps) {
 
 function FlashingBox ({ ...boxBaseProps }: BoxBaseProps) {
   return (
-    <div className={`rounded-md relative w-full border border-slate-800 ${boxBaseProps.className}`}>
-      <div className='absolute top-0 flex w-full justify-center'>
+    <div className={`rounded-md relative border border-slate-800 ${boxBaseProps.className}`}>
+      <div className='absolute top-0 flex justify-center'>
         <div className='left-0 h-[1px] animate-border-width rounded-full bg-gradient-to-r from-[rgba(17,17,17,0)] via-white to-[rgba(17,17,17,0)] transition-all duration-1000' />
       </div>
       {boxBaseProps.children}
